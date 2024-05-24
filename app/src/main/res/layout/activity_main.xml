@@ -1,17 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main">
-
-    <TextView
-        android:background="@color/black"
-        android:paddingVertical="10sp"
-        android:textAlignment="center"
-        android:id="@+id/textView"
-        android:textColor="@color/white"
-        android:textSize="20sp"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:background="@color/gray"
+    android:fitsSystemWindows="true"
+    >
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_marginTop="32dp"
+        android:layout_height="48dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:paddingHorizontal="32dp"
+        >
+        <ImageView
+            android:contentDescription="@string/notify_description"
+            android:id="@+id/imageAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/avatar"
+            android:scaleType="centerCrop"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"/>
+        <TextView
+            android:id="@+id/name"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Asfak Sayem"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/imageAvatar"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="asfaksayem@gmail.com"
+            android:textColor="#ffffff"
+            android:textSize="10sp"
+            android:layout_below="@+id/name"
+            android:layout_toEndOf="@+id/imageAvatar"
+            android:layout_marginStart="15dp"
+            />
+        <ImageButton
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/couple"
+            android:contentDescription="@string/notify_description"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listOptions"
+        android:layout_below="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:dividerHeight="40dp"
+        android:paddingHorizontal="32dp" />
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_below="@+id/listOptions"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="32dp"
+        >
+        <View
+            android:layout_marginTop="100dp"
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+        <ImageView
+            android:id="@+id/questionMark"
+            android:layout_centerVertical="true"
+            android:layout_margin="12dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/question"
+            android:layout_below="@+id/divider"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/notify_description"
+            />
+        <TextView
+            android:id="@+id/titleQuestion"
+            android:layout_toEndOf="@+id/questionMark"
+            android:layout_below="@+id/divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginVertical="12dp"
+            android:textSize="15dp"
+            android:fontFamily="@font/inter_fonts"
+            android:text="Colour Scheme"
+            />
+        <RadioGroup
+
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/questionMark"
+            android:checkedButton="@+id/offer"
+            android:id="@+id/toggle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/pink_out_line"
+            android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="1dp"
+            android:id="@+id/lightMode"
+            android:background="@drawable/toggle_widget_background"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Light"
+            android:textColor="@color/white" />
+            <RadioButton
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:id="@+id/darkMode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/toggle_widget_background"
+                android:button="@null"
+                android:gravity="center"
+                android:text="Dark"
+                android:textColor="@color/white" />
+        </RadioGroup>
+    </RelativeLayout>
+</RelativeLayout>

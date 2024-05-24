@@ -1,14 +1,11 @@
 package com.demo.helloworld
 
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
+import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import java.net.HttpURLConnection
-import java.net.URL
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +17,17 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val textView : TextView = findViewById(R.id.textView)
-        textView.setText("Hello Minh, kotlin!")
+        var listView : ListView = findViewById(R.id.listOptions)
+        var listOfOptions = arrayListOf<OptionListView>()
+        listOfOptions.add( OptionListView(R.drawable.calendar, "Calendar", R.drawable.blue_frame, true))
+        listOfOptions.add( OptionListView(R.drawable.reward, "Rewards", R.drawable.blue_frame, true))
+        listOfOptions.add( OptionListView(R.drawable.map, "Address", R.drawable.blue_frame, true))
+        listOfOptions.add( OptionListView(R.drawable.wallet, "Payment Methods", R.drawable.blue_frame, true))
+        listOfOptions.add( OptionListView(R.drawable.icon, "Offers", R.drawable.blue_frame, true))
+        listOfOptions.add( OptionListView(R.drawable.people, "Refer a friend", R.drawable.blue_frame, true))
+        listOfOptions.add( OptionListView(R.drawable.call, "Support", R.drawable.blue_frame, true))
 
+        val customAdapter = CustomListViewAdapter(this, R.layout.list_option, listOfOptions)
+        listView.adapter = customAdapter
     }
 }
